@@ -28,12 +28,35 @@ export class GitHubError extends Error {
   }
 }
 
+// Fisher-Yates shuffle algorithm
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export async function getTrendingRepositories(): Promise<Repository[]> {
   try {
+    // Get a mix of different time periods and languages
+    const queries = [
+      'stars:>1000 created:>2024-01-01',
+      'stars:>5000 created:>2023-01-01',
+      'stars:>10000 language:typescript',
+      'stars:>10000 language:python',
+      'stars:>10000 language:javascript',
+      'stars:>10000 language:rust',
+      'stars:>10000 language:go',
+    ];
+
+    const randomQuery = queries[Math.floor(Math.random() * queries.length)];
+
     const response = await fetch(
       'https://api.github.com/search/repositories?' +
       new URLSearchParams({
-        q: 'stars:>1000',
+        q: randomQuery,
         sort: 'stars',
         order: 'desc',
         per_page: '100'
@@ -58,7 +81,8 @@ export async function getTrendingRepositories(): Promise<Repository[]> {
 
     const data = await response.json() as GitHubApiResponse;
     
-    return data.items.map((item) => ({
+    // Shuffle the repositories before returning
+    return shuffleArray(data.items).map((item) => ({
       id: item.id.toString(),
       name: item.name,
       description: item.description || '',
