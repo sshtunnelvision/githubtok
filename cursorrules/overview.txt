@@ -1,0 +1,27 @@
+Product Type:
+
+- Web app
+- Social media for GitHub repositories
+
+Core Functionality:
+
+- Swipe up on mobile or left/right on desktop to browse popular GitHub repositories
+- Display repository details such as stars, forks, and description
+- Integration with GitHub API for fetching repository data
+
+Tech Stack:
+
+- Frontend framework/library: Next.js with App Router
+- Backend framework/language: Node.js (if needed for server-side operations)
+- Database: None (data fetched directly from GitHub API)
+- Key dependencies: Tailwind CSS for styling, shadcn for UI components
+
+Special Requirements (if any):
+
+- Authentication needs: None (public data access)
+- Real-time features: None
+- Offline capabilities: Basic caching for previously viewed repositories
+- Performance requirements: Fast loading and smooth swiping animations
+- Compliance needs: Adherence to GitHub API usage policies
+- Mobile-first design: Yes, optimized for mobile swiping
+- Accessibility requirements: Ensure keyboard navigation and screen reader compatibility

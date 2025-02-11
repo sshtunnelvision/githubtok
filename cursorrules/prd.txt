@@ -1,0 +1,109 @@
+USER STORIES
+-----------
+- As a user, I want to swipe through GitHub repositories, so that I can discover interesting projects
+- As a user, I want to see key repository details at a glance, so that I can quickly evaluate if it interests me 
+- As a user, I want different navigation options on mobile and desktop, so that I can browse comfortably on any device
+- As a user, I want to open the repository in GitHub, so that I can explore it further
+
+FRONTEND ARCHITECTURE
+--------------------
+
+1. Setup & Configuration
+- Next.js 14+ with App Router
+- Tailwind CSS for styling
+- shadcn/ui for component library
+- Project structure:
+  /app - Pages and layouts
+  /components - Reusable UI components
+  /lib - Utilities and API functions
+  /types - TypeScript interfaces
+  /hooks - Custom React hooks
+
+2. Core Features
+
+Pages/Routes:
+- / - Main swipe interface
+- /about - Information about the app
+
+Key Components:
+- RepoCard - Repository display card
+- SwipeContainer - Handles swipe gestures
+- DesktopNavigation - Left/right navigation for desktop
+- RepoDetails - Displays repository information
+- LoadingState - Loading skeleton
+- ErrorState - Error handling display
+
+State Management:
+- React's built-in state for local UI
+- Server components for data fetching
+- Custom hooks for swipe logic
+
+UI/UX Considerations:
+- Smooth swipe animations
+- Loading states
+- Error states
+- Responsive design
+- Touch-friendly interactions
+
+3. Data Flow
+- Server components fetch repository data
+- Client components handle swipe interactions
+- Caching with Next.js cache mechanisms
+- Prefetching next repository data
+
+BACKEND ARCHITECTURE
+-------------------
+
+1. Setup & Configuration
+- Next.js API routes (if needed for rate limiting)
+- GitHub API integration
+- Environment variables for API keys
+
+2. Core Features
+
+API Routes:
+- /api/repos - Fetch trending repositories
+- /api/repo/[id] - Fetch specific repository details
+
+Data Processing:
+- Filter relevant repository data
+- Format response for frontend consumption
+- Handle GitHub API pagination
+
+3. Data Flow
+
+Request Handling:
+- Validate requests
+- Rate limiting
+- Error handling
+- Response caching
+
+INTEGRATION POINTS
+-----------------
+
+API Contracts:
+interface Repository {
+  id: string;
+  name: string;
+  description: string;
+  stars: number;
+  forks: number;
+  language: string;
+  owner: {
+    login: string;
+    avatar_url: string;
+  };
+  html_url: string;
+  created_at: string;
+}
+
+Environment Variables:
+GITHUB_API_TOKEN=
+NEXT_PUBLIC_API_URL=
+
+Special Considerations:
+- GitHub API rate limiting
+- Mobile-first responsive design
+- Touch gesture handling
+- Accessibility for keyboard navigation
+- Performance optimization for smooth animations
