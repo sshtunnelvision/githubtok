@@ -30,9 +30,9 @@ export default function Home() {
   if (isLoading) {
     return (
       <main className="min-h-screen bg-gradient-to-b from-gray-100 to-white">
-        <div className="container mx-auto px-4 py-8">
+        <div className="pt-20 px-4">
           <div className="animate-pulse">
-            <div className="h-8 w-48 bg-gray-200 rounded mb-4 mx-auto" />
+            <div className="h-8 w-48 bg-gray-200 rounded mb-2 mx-auto" />
             <div className="h-4 w-64 bg-gray-200 rounded mb-8 mx-auto" />
             <div className="max-w-md mx-auto">
               <div className="h-64 bg-gray-200 rounded-lg" />
@@ -45,8 +45,8 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-100 to-white">
-      <div className="container mx-auto px-4 py-8">
-        <header className="text-center mb-8">
+      <div className="pt-20 px-4">
+        <header className="text-center mb-6">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">GitHubTok</h1>
           <p className="text-gray-600">
             Discover trending repositories with a swipe
@@ -56,10 +56,6 @@ export default function Home() {
         <SwipeContainer
           repositories={repositories}
           onSwipe={(direction) => {
-            // In a real app, we might want to:
-            // - Save user preferences
-            // - Load more repositories
-            // - Track analytics
             console.log(`Swiped ${direction}`);
           }}
         />

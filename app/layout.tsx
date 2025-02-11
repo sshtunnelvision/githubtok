@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body className={`${inter.className} h-full`}>
         <NavBar />
-        <div className="pt-16">{children}</div>
+        {children}
       </body>
     </html>
   );

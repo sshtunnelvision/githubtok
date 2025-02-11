@@ -81,9 +81,6 @@ export function SwipeContainer({ repositories, onSwipe }: SwipeContainerProps) {
         case "ArrowRight":
           handleSwipe("right");
           break;
-        case "ArrowUp":
-          handleSwipe("up");
-          break;
       }
     };
 
@@ -96,7 +93,7 @@ export function SwipeContainer({ repositories, onSwipe }: SwipeContainerProps) {
   }
 
   return (
-    <div className="relative w-full h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
+    <div className="relative w-full h-[calc(100vh-14rem)] flex items-center justify-center">
       <motion.div
         drag
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
@@ -114,20 +111,13 @@ export function SwipeContainer({ repositories, onSwipe }: SwipeContainerProps) {
       </motion.div>
 
       {/* Desktop navigation buttons */}
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-4 md:space-x-8">
+      <div className="absolute bottom-0 left-0 right-0 flex justify-center space-x-12">
         <button
           onClick={() => handleSwipe("left")}
           className="p-3 rounded-full bg-white/90 shadow-lg hover:bg-white transition-colors"
           aria-label="Skip repository"
         >
           ←
-        </button>
-        <button
-          onClick={() => handleSwipe("up")}
-          className="p-3 rounded-full bg-white/90 shadow-lg hover:bg-white transition-colors"
-          aria-label="Open in GitHub"
-        >
-          ↑
         </button>
         <button
           onClick={() => handleSwipe("right")}
