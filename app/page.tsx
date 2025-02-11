@@ -29,8 +29,8 @@ export default function Home() {
 
   if (isLoading) {
     return (
-      <main className="min-h-screen bg-gradient-to-b from-gray-100 to-white pt-16">
-        <div className="animate-pulse h-[calc(100vh-4rem)]">
+      <main className="min-h-screen bg-gradient-to-b from-gray-100 to-white">
+        <div className="animate-pulse h-screen">
           <div className="max-w-md mx-auto h-full px-4 flex items-center justify-center">
             <div className="w-full h-[80vh] bg-gray-200 rounded-lg" />
           </div>
@@ -40,14 +40,7 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-100 to-white pt-16">
-      <header className="hidden md:block text-center mb-6">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">GitHubTok</h1>
-        <p className="text-gray-600">
-          Discover trending repositories with a swipe
-        </p>
-      </header>
-
+    <main className="min-h-screen bg-gradient-to-b from-gray-100 to-white">
       <SwipeContainer
         repositories={repositories}
         onSwipe={(direction) => {

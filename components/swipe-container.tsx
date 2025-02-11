@@ -93,7 +93,7 @@ export function SwipeContainer({ repositories, onSwipe }: SwipeContainerProps) {
   }
 
   return (
-    <div className="relative w-full h-[calc(100vh-4rem)] md:h-[calc(100vh-12rem)] flex items-center justify-center">
+    <div className="relative w-full h-screen flex items-center justify-center">
       <motion.div
         drag
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
@@ -103,7 +103,7 @@ export function SwipeContainer({ repositories, onSwipe }: SwipeContainerProps) {
         animate={controls}
         whileDrag={{ scale: 1.02 }}
         style={{ x: 0, y: 0 }}
-        className={`touch-none select-none transition-opacity w-full h-full px-0 md:px-4 ${
+        className={`touch-none select-none transition-opacity w-full h-full md:h-auto px-0 flex items-center ${
           isDragging ? "cursor-grabbing" : "cursor-grab"
         }`}
       >
@@ -111,7 +111,7 @@ export function SwipeContainer({ repositories, onSwipe }: SwipeContainerProps) {
       </motion.div>
 
       {/* Desktop navigation buttons */}
-      <div className="hidden md:flex absolute bottom-0 left-0 right-0 justify-center space-x-16">
+      <div className="hidden md:flex absolute bottom-8 left-0 right-0 justify-center space-x-16">
         <button
           onClick={() => handleSwipe("left")}
           className="p-4 rounded-full bg-white/90 shadow-lg hover:bg-white transition-colors text-xl"
