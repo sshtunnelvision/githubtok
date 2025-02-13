@@ -14,7 +14,7 @@ export function AboutDialog() {
     <Dialog>
       <DialogTrigger asChild>
         <button
-          className="fixed top-4 right-4 z-50 p-2 hover:opacity-80 transition-opacity"
+          className="fixed top-4 right-4 z-50 p-2 hover:opacity-80 transition-opacity bg-white rounded-md shadow-sm"
           aria-label="About GitHubTok"
         >
           <InfoIcon className="w-6 h-6 text-gray-700" />

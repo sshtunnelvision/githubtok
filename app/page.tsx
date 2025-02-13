@@ -74,12 +74,15 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-100 to-white">
+    <main className="min-h-screen bg-gradient-to-b from-gray-100 to-white pt-16 md:pt-0">
+      {/* Fixed Header */}
+      <div className="fixed top-0 left-0 right-0 h-16 bg-white z-40" />
+
       <AboutDialog />
       {/* Save Button */}
       <button
         onClick={() => addLikedRepo(repositories[currentIndex])}
-        className="fixed top-4 right-16 z-50 p-2 hover:opacity-80 transition-opacity"
+        className="fixed top-4 right-16 z-50 p-2 hover:opacity-80 transition-opacity bg-white rounded-md shadow-sm"
         aria-label="Save repository"
       >
         <HeartIcon

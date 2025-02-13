@@ -17,8 +17,8 @@ interface RepoCardProps {
 
 export function RepoCard({ repo }: RepoCardProps) {
   return (
-    <Card className="w-full h-full md:h-auto md:max-w-lg mx-auto bg-white shadow-lg">
-      <CardHeader className="space-y-3 md:space-y-3 p-5 md:p-6">
+    <Card className="w-full h-full md:h-auto md:max-w-lg mx-auto bg-white shadow-lg rounded-none md:rounded-lg border-0">
+      <CardHeader className="space-y-3 md:space-y-3 p-5 md:p-6 border-0">
         <div className="flex items-center space-x-4 md:space-x-4">
           <div className="relative w-12 h-12 md:w-14 md:h-14 shrink-0">
             <Image
