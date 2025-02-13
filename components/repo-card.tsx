@@ -6,9 +6,15 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { StarIcon, GitForkIcon, ExternalLinkIcon } from "lucide-react";
+import {
+  StarIcon,
+  GitForkIcon,
+  ExternalLinkIcon,
+  FileTextIcon,
+} from "lucide-react";
 import { Repository } from "@/types/github";
 import Image from "next/image";
+import { ReadmeDialog } from "./readme-dialog";
 
 interface RepoCardProps {
   repo: Repository;
@@ -65,16 +71,30 @@ export function RepoCard({ repo }: RepoCardProps) {
           )}
         </div>
       </CardContent>
-      <CardFooter className="p-5 md:p-6">
-        <a
-          href={repo.html_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center space-x-3 text-primary hover:underline text-lg md:text-xl"
-        >
-          <span>View on GitHub</span>
-          <ExternalLinkIcon className="w-6 h-6 shrink-0" />
-        </a>
+      <CardFooter className="p-5 md:p-6 flex flex-col space-y-4">
+        <div className="flex flex-col items-stretch space-y-3">
+          <button
+            onClick={() =>
+              document
+                .querySelector<HTMLButtonElement>('[aria-label="View README"]')
+                ?.click()
+            }
+            className="flex items-center w-full px-4 py-3 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-900 transition-colors group"
+          >
+            <span className="font-medium">View README</span>
+            <FileTextIcon className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors ml-auto" />
+          </button>
+          <a
+            href={repo.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center w-full px-4 py-3 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-900 transition-colors group"
+          >
+            <span className="font-medium">View on GitHub</span>
+            <ExternalLinkIcon className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors ml-3 ml-auto" />
+          </a>
+        </div>
+        <ReadmeDialog repo={repo} />
       </CardFooter>
     </Card>
   );

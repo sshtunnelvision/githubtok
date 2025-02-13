@@ -70,12 +70,8 @@ export default function Home() {
       </div>
       <SwipeContainer
         repositories={repositories}
-        onSwipe={(direction) => {
-          if (direction === "right") {
-            // Add current repository to liked repos when swiping right
-            addLikedRepo(repositories[currentIndex]);
-          }
-          // Update current index
+        onSwipe={() => {
+          // Just update the index regardless of swipe direction
           setCurrentIndex((prev) => (prev + 1) % repositories.length);
         }}
       />
