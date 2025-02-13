@@ -74,7 +74,7 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-100 to-white pt-16 md:pt-0">
+    <main className="min-h-screen bg-gradient-to-b from-gray-100 to-white">
       {/* Fixed Header */}
       <div className="fixed top-0 left-0 right-0 h-16 bg-white/50 backdrop-blur-sm z-40" />
 
@@ -99,13 +99,15 @@ export default function Home() {
       <div className="fixed bottom-6 right-6 z-50">
         <LikedReposDialog likedRepos={likedRepos} onRemove={removeLikedRepo} />
       </div>
-      <SwipeContainer
-        repositories={repositories}
-        onSwipe={() => {
-          // Just update the index regardless of swipe direction
-          setCurrentIndex((prev) => (prev + 1) % repositories.length);
-        }}
-      />
+      <div className="pt-16">
+        <SwipeContainer
+          repositories={repositories}
+          onSwipe={() => {
+            // Just update the index regardless of swipe direction
+            setCurrentIndex((prev) => (prev + 1) % repositories.length);
+          }}
+        />
+      </div>
     </main>
   );
 }
