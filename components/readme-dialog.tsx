@@ -29,7 +29,14 @@ export function ReadmeDialog({ repo }: ReadmeDialogProps) {
       if (!response.ok) {
         throw new Error("Failed to load README");
       }
-      const html = await response.text();
+      let html = await response.text();
+
+      // Transform relative image URLs to absolute GitHub URLs
+      html = html.replace(
+        /src="(?!http|\/\/|data:)(.*?)"/g,
+        `src="https://raw.githubusercontent.com/${repo.owner.login}/${repo.name}/main/$1"`
+      );
+
       setReadmeContent(html);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to load README");
@@ -67,7 +74,18 @@ export function ReadmeDialog({ repo }: ReadmeDialogProps) {
             ) : (
               <div
                 dangerouslySetInnerHTML={{ __html: readmeContent }}
-                className="[&>*:first-child]:mt-0 [&_img]:rounded-lg [&_img]:my-4 [&_img]:max-w-full [&_img]:h-auto [&_pre]:overflow-x-auto [&_pre]:p-4 [&_pre]:bg-gray-50/50 [&_pre]:rounded-lg [&_code]:text-sm [&_h1]:text-2xl [&_h1]:mt-8 [&_h1]:mb-6 [&_h2]:text-xl [&_h2]:mt-8 [&_h2]:mb-4 [&_h3]:text-lg [&_h3]:mt-6 [&_h3]:mb-4 [&_p]:text-base [&_p]:my-4 [&_li]:text-base [&_ul]:my-4 [&_ol]:my-4 [&_a]:text-primary [&_a]:no-underline hover:[&_a]:underline [&_table]:w-full [&_td]:p-2 [&_th]:p-2 [&_tr]:border-b [&_tr]:border-gray-200 [&_pre]:whitespace-pre-wrap [&_code]:whitespace-pre-wrap [&_*]:break-words"
+                className="[&>*:first-child]:mt-0 [&_img]:rounded-lg [&_img]:my-4 [&_img]:max-w-full [&_img]:h-auto 
+                [&_pre]:overflow-x-auto [&_pre]:p-4 [&_pre]:bg-gray-50/50 [&_pre]:rounded-lg [&_code]:text-sm 
+                [&_h1]:text-2xl [&_h1]:mt-8 [&_h1]:mb-6 [&_h2]:text-xl [&_h2]:mt-8 [&_h2]:mb-4 
+                [&_h3]:text-lg [&_h3]:mt-6 [&_h3]:mb-4 [&_p]:text-base [&_p]:my-4 
+                [&_li]:text-base [&_ul]:my-4 [&_ol]:my-4 
+                [&_a]:text-primary [&_a]:no-underline hover:[&_a]:underline 
+                [&_table]:w-full [&_td]:p-2 [&_th]:p-2 [&_tr]:border-b [&_tr]:border-gray-200 
+                [&_pre]:whitespace-pre-wrap [&_code]:whitespace-pre-wrap [&_*]:break-words
+                [&_p:has(>img)]:flex [&_p:has(>img)]:flex-col [&_p:has(>img)]:items-center [&_p:has(>img)]:gap-4
+                [&_p:has(>a>img)]:flex [&_p:has(>a>img)]:flex-col [&_p:has(>a>img)]:items-center [&_p:has(>a>img)]:gap-4
+                [&_p:has(>img+a)]:flex [&_p:has(>img+a)]:flex-col [&_p:has(>img+a)]:items-center [&_p:has(>img+a)]:gap-4
+                [&_p:has(>a)]:flex [&_p:has(>a)]:flex-wrap [&_p:has(>a)]:gap-2 [&_p:has(>a)]:items-center"
               />
             )}
           </div>
