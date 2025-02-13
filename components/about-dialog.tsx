@@ -40,6 +40,16 @@ export function AboutDialog() {
               @sshtunnelvision
             </a>
           </p>
+          {/* <p className="text-sm text-gray-500">
+            <a
+              href="https://github.com/sshtunnelvision/githubtok"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              View source code here and don&apos;t forget to star!
+            </a>
+          </p> */}
         </div>
       </DialogContent>
     </Dialog>
