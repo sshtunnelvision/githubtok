@@ -93,7 +93,7 @@ export function SwipeContainer({ repositories, onSwipe }: SwipeContainerProps) {
   }
 
   return (
-    <div className="relative w-full h-screen flex items-center justify-center">
+    <div className="relative w-full h-[calc(100vh-4rem)] md:h-screen flex items-start md:items-center justify-center">
       <motion.div
         drag
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
@@ -103,7 +103,7 @@ export function SwipeContainer({ repositories, onSwipe }: SwipeContainerProps) {
         animate={controls}
         whileDrag={{ scale: 1.02 }}
         style={{ x: 0, y: 0 }}
-        className={`touch-none select-none transition-opacity w-full h-full md:h-auto px-0 flex items-center ${
+        className={`touch-none select-none transition-opacity w-full h-full md:h-auto px-0 flex items-start md:items-center ${
           isDragging ? "cursor-grabbing" : "cursor-grab"
         }`}
       >

@@ -74,7 +74,7 @@ export function RepoCard({ repo }: RepoCardProps) {
                 .querySelector<HTMLButtonElement>('[aria-label="View README"]')
                 ?.click()
             }
-            className="flex items-center text-gray-700 hover:text-gray-900 transition-colors group focus:outline-none focus-visible:outline-none w-full px-3 py-2 bg-gray-50/80 rounded-md shadow-sm hover:shadow transition-all"
+            className="flex items-center text-gray-700 hover:text-gray-900 group focus:outline-none focus-visible:outline-none w-full px-3 py-2 bg-gray-50/80 rounded-md shadow-sm hover:shadow transition-all"
           >
             <FileTextIcon className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors mr-3" />
             <span className="font-medium">View README</span>
@@ -83,7 +83,7 @@ export function RepoCard({ repo }: RepoCardProps) {
             href={repo.html_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center text-gray-700 hover:text-gray-900 transition-colors group focus:outline-none focus-visible:outline-none w-full px-3 py-2 bg-gray-50/80 rounded-md shadow-sm hover:shadow transition-all"
+            className="flex items-center text-gray-700 hover:text-gray-900 group focus:outline-none focus-visible:outline-none w-full px-3 py-2 bg-gray-50/80 rounded-md shadow-sm hover:shadow transition-all"
           >
             <ExternalLinkIcon className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors mr-3" />
             <span className="font-medium">View on GitHub</span>
