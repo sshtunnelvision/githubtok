@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import {
   StarIcon,
   GitForkIcon,
@@ -71,31 +66,31 @@ export function RepoCard({ repo }: RepoCardProps) {
           )}
         </div>
       </CardContent>
-      <CardFooter className="p-5 md:p-6 flex flex-col space-y-4">
-        <div className="flex flex-col items-stretch space-y-3">
+      <div className="p-5 md:p-6 space-y-4">
+        <div className="flex flex-col space-y-4">
           <button
             onClick={() =>
               document
                 .querySelector<HTMLButtonElement>('[aria-label="View README"]')
                 ?.click()
             }
-            className="flex items-center w-full px-4 py-3 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-900 transition-colors group"
+            className="flex items-center text-gray-700 hover:text-gray-900 transition-colors group focus:outline-none focus-visible:outline-none w-full px-3 py-2 bg-gray-50/80 rounded-md shadow-sm hover:shadow transition-all"
           >
+            <FileTextIcon className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors mr-3" />
             <span className="font-medium">View README</span>
-            <FileTextIcon className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors ml-auto" />
           </button>
           <a
             href={repo.html_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center w-full px-4 py-3 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-900 transition-colors group"
+            className="flex items-center text-gray-700 hover:text-gray-900 transition-colors group focus:outline-none focus-visible:outline-none w-full px-3 py-2 bg-gray-50/80 rounded-md shadow-sm hover:shadow transition-all"
           >
+            <ExternalLinkIcon className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors mr-3" />
             <span className="font-medium">View on GitHub</span>
-            <ExternalLinkIcon className="w-5 h-5 text-gray-600 group-hover:text-gray-900 transition-colors ml-3 ml-auto" />
           </a>
         </div>
         <ReadmeDialog repo={repo} />
-      </CardFooter>
+      </div>
     </Card>
   );
 }

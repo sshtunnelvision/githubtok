@@ -36,10 +36,38 @@ export default function Home() {
   if (isLoading) {
     return (
       <main className="min-h-screen bg-gradient-to-b from-gray-100 to-white">
-        <div className="animate-pulse h-screen">
-          <div className="max-w-md mx-auto h-full px-4 flex items-center justify-center">
-            <div className="w-full h-[80vh] bg-gray-200 rounded-lg" />
+        <div className="h-screen flex flex-col items-center justify-center px-4">
+          {/* Logo/Title */}
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
+            GitHubTok
+          </h1>
+          {/* Card Skeleton */}
+          <div className="w-full md:max-w-lg bg-white rounded-lg shadow-lg p-6 space-y-4">
+            {/* Avatar and Title */}
+            <div className="flex items-center space-x-4">
+              <div className="w-12 h-12 bg-gray-200 rounded-full animate-pulse" />
+              <div className="space-y-2 flex-1">
+                <div className="h-5 bg-gray-200 rounded animate-pulse w-3/4" />
+                <div className="h-4 bg-gray-200 rounded animate-pulse w-1/2" />
+              </div>
+            </div>
+            {/* Description */}
+            <div className="space-y-2">
+              <div className="h-4 bg-gray-200 rounded animate-pulse w-full" />
+              <div className="h-4 bg-gray-200 rounded animate-pulse w-5/6" />
+              <div className="h-4 bg-gray-200 rounded animate-pulse w-4/6" />
+            </div>
+            {/* Stats */}
+            <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+              <div className="h-6 bg-gray-200 rounded animate-pulse w-1/3" />
+              <div className="h-6 bg-gray-200 rounded animate-pulse w-1/3" />
+              <div className="h-6 bg-gray-200 rounded animate-pulse w-1/3" />
+            </div>
           </div>
+          {/* Loading Text */}
+          <p className="text-sm text-gray-500 mt-4">
+            Finding trending repositories...
+          </p>
         </div>
       </main>
     );
@@ -65,7 +93,7 @@ export default function Home() {
         />
       </button>
       {/* Liked Repos Dialog in bottom right */}
-      <div className="fixed bottom-8 right-8 z-50">
+      <div className="fixed bottom-6 right-6 z-50">
         <LikedReposDialog likedRepos={likedRepos} onRemove={removeLikedRepo} />
       </div>
       <SwipeContainer

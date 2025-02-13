@@ -23,11 +23,11 @@ export function LikedReposDialog({
     <Dialog>
       <DialogTrigger asChild>
         <button
-          className="p-3 rounded-full bg-gray-900 text-white hover:bg-gray-800 transition-colors flex items-center space-x-2"
+          className="p-2 rounded-md bg-gray-900 text-white hover:bg-gray-800 transition-colors flex items-center space-x-2 text-sm"
           aria-label="View saved repositories"
         >
-          <HeartIcon className="w-5 h-5" />
-          <span className="text-sm font-medium">{likedRepos.length} saved</span>
+          <HeartIcon className="w-4 h-4" />
+          <span className="font-medium">{likedRepos.length} saved</span>
         </button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-lg">

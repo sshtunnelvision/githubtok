@@ -111,17 +111,17 @@ export function SwipeContainer({ repositories, onSwipe }: SwipeContainerProps) {
       </motion.div>
 
       {/* Desktop navigation buttons */}
-      <div className="hidden md:flex absolute bottom-8 left-0 right-0 justify-center space-x-16">
+      <div className="hidden md:flex absolute bottom-8 left-8 space-x-4">
         <button
           onClick={() => handleSwipe("left")}
-          className="p-4 rounded-full bg-white/90 shadow-lg hover:bg-white transition-colors text-xl"
+          className="p-4 text-gray-700 hover:text-gray-900 transition-colors text-xl focus:outline-none focus-visible:outline-none"
           aria-label="Skip repository"
         >
           ←
         </button>
         <button
           onClick={() => handleSwipe("right")}
-          className="p-4 rounded-full bg-white/90 shadow-lg hover:bg-white transition-colors text-xl"
+          className="p-4 text-gray-700 hover:text-gray-900 transition-colors text-xl focus:outline-none focus-visible:outline-none"
           aria-label="Like repository"
         >
           →
