@@ -76,7 +76,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-100 to-white pt-16 md:pt-0">
       {/* Fixed Header */}
-      <div className="fixed top-0 left-0 right-0 h-16 bg-white z-40" />
+      <div className="fixed top-0 left-0 right-0 h-16 bg-white/50 backdrop-blur-sm z-40" />
 
       <AboutDialog />
       {/* Save Button */}
