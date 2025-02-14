@@ -76,7 +76,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-100 to-white">
       {/* Fixed Header */}
-      <div className="fixed top-0 left-0 right-0 h-16 bg-white/50 backdrop-blur-sm z-40" />
+      <div className="fixed top-0 left-0 right-0 h-16 bg-white/50 backdrop-blur-sm z-40 flex items-center px-4">
+        <h1 className="text-xl font-bold text-gray-900">GitHubTok</h1>
+      </div>
 
       <AboutDialog />
       {/* Save Button */}
