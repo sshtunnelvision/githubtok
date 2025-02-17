@@ -62,7 +62,7 @@ export function ReadmeDialog({ repo }: ReadmeDialogProps) {
         <DialogHeader className="sr-only">
           <DialogTitle>{repo.name} README</DialogTitle>
         </DialogHeader>
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto overflow-x-hidden">
           <div className="prose prose-sm md:prose-base max-w-none dark:prose-invert px-6">
             <h1 className="text-xl font-semibold mb-6">{repo.name} README</h1>
             {isLoading ? (
@@ -85,7 +85,10 @@ export function ReadmeDialog({ repo }: ReadmeDialogProps) {
                 [&_p:has(>img)]:flex [&_p:has(>img)]:flex-col [&_p:has(>img)]:items-center [&_p:has(>img)]:gap-4
                 [&_p:has(>a>img)]:flex [&_p:has(>a>img)]:flex-col [&_p:has(>a>img)]:items-center [&_p:has(>a>img)]:gap-4
                 [&_p:has(>img+a)]:flex [&_p:has(>img+a)]:flex-col [&_p:has(>img+a)]:items-center [&_p:has(>img+a)]:gap-4
-                [&_p:has(>a)]:flex [&_p:has(>a)]:flex-wrap [&_p:has(>a)]:gap-2 [&_p:has(>a)]:items-center"
+                [&_p:has(>a)]:flex [&_p:has(>a)]:flex-wrap [&_p:has(>a)]:gap-2 [&_p:has(>a)]:items-center
+                [&_table]:overflow-x-auto [&_table]:block [&_table]:w-full [&_table]:max-w-full
+                [&_pre]:max-w-full [&_pre]:overflow-x-auto [&_pre]:block
+                [&_img]:object-contain [&_img]:w-full"
               />
             )}
           </div>
