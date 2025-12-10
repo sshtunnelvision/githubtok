@@ -80,7 +80,24 @@ export default function Home() {
         <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2">
           <h1 className="text-xl font-bold text-gray-900">GitHubTok</h1>
           <span className="text-xs sm:text-sm text-gray-500">
-            by Arek Halpern
+            by{" "}
+            <a
+              href="https://www.linkedin.com/in/arekhalpern/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-700 underline underline-offset-2"
+            >
+              Arek Halpern
+            </a>
+            <span className="mx-1">·</span>
+            <a
+              href="https://github.com/arekhalpern"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-700 underline underline-offset-2"
+            >
+              GitHub
+            </a>
           </span>
         </div>
       </div>
