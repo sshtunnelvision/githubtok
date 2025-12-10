@@ -27,19 +27,14 @@ export function AboutDialog() {
         <div className="space-y-4">
           <p className="text-base text-gray-700">
             A TikTok-style interface for discovering trending GitHub
-            repositories.
+            repositories. Swipe through the hottest open source projects and
+            find your next favorite repo.
           </p>
-          <p className="text-sm text-gray-500">
-            Brought to you by{" "}
-            <a
-              href="https://x.com/sshtunnelvision"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              @sshtunnelvision
-            </a>
-          </p>
+          <div className="pt-2 border-t border-gray-100">
+            <p className="text-sm text-gray-600 font-medium">
+              Created by Arek Halpern
+            </p>
+          </div>
           {/* <p className="text-sm text-gray-500">
             <a
               href="https://github.com/sshtunnelvision/githubtok"
